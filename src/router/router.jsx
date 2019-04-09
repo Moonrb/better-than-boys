@@ -10,7 +10,11 @@ const projectRouter = (
     <Router>
         <App>
             <Switch>
-                <Route path='/index' component={Index}/>
+                <Route path='/index' component={()=>(
+                    <Index>
+
+                    </Index>
+                )}/>
                 <Route path='/login' component={Login}/>
                 <Route path='/detail/:id' component={Detail} exact/>
                 <Redirect from='*' to='/index'/>
