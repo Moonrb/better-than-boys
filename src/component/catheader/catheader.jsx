@@ -1,16 +1,14 @@
 import React,{Component} from 'react'
-import Navber from  '../../component/navber/navber'
-class Index extends Component{
+class Catheader extends Component{
     constructor(props){
         super(props)
     }
     render() {
         return(
             <div>
-                <Navber/>
-                {this.props.children}
+                <h1>猫头</h1>
             </div>
         )
     }
 }
-export default Index
+export default Catheader
