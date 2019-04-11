@@ -1,15 +1,16 @@
-import {ADD_COMMINGLIST} from '../../../store/type'
+import {ADD_COMMINGLIST,ADD_ACROSSCOMMINGLIST} from '../../../store/type'
 import axios from 'axios'
-var CancelToken = axios.CancelToken;
-var source = CancelToken.source();
 export const comminlist = ()=>axios.get('/ajax/comingList?ci=197&token=&limit=10',{
-    cancelToken: source.token
 })
     .then(res=>({
         type:ADD_COMMINGLIST,
         payload:res.data.coming
     }));
 
-export const cancel = ()=>{
-    source.cancel();
-};
+export const comminacrosslist = ()=>axios.get('/ajax/mostExpected?ci=197&limit=10&offset=0&token=')
+    .then(res=>({
+        type:ADD_ACROSSCOMMINGLIST,
+        payload:res.data.coming
+    }));
+
+
