@@ -1,19 +1,23 @@
 import React,{Component} from 'react'
 import store from '../../../store/store'
-import {comminlist,cancel} from './actionCreator'
+import {comminlist,comminacrosslist} from './actionCreator'
 import Listfile from '../../../component/listfile/listfile'
+import style from  './comminMovie.module.scss'
+import Swiper from '../../../component/swiper/swiper'
 class Commin extends Component{
     constructor(props){
         super(props);
         this.state={
-            comminglist:[]
+            comminglist:[],
+            comminacrosslist:[] // 开头轮播图的数据
         }
     }
 
     render() {
         return(
-            <div>
-                <ul>
+            <div id={style.commin}>
+                <Swiper {...this.props} comminacrosslist={this.state.comminacrosslist}/>
+                <ul className={style.vertical}>
                     {
                         this.state.comminglist.map(item=>(
                             <Listfile {...this.props} key={item.id} id={item.id}>
@@ -29,21 +33,22 @@ class Commin extends Component{
     }
     componentDidMount() {
         if (store.getState().comminglistReducer.length === 0){
-            store.dispatch(comminlist())
+            store.dispatch(comminlist());
+            store.dispatch(comminacrosslist())
         }else {
             this.setState({
-                comminglist:store.getState().comminglistReducer
+                comminglist:store.getState().comminglistReducer,
+                comminacrosslist:store.getState().comminacrosslistReducer
             })
         }
         store.subscribe(()=>{
             this.setState({
-                comminglist:store.getState().comminglistReducer
+                comminglist:store.getState().comminglistReducer,
+                comminacrosslist:store.getState().comminacrosslistReducer
+
             })
         })
     }
-    componentWillUnmount() {
 
-        cancel();
-    }
 }
 export default Commin
