@@ -12,9 +12,9 @@ const SimpleSwiperWithParams = (props) => {
             type: 'bullets',
             clickable: true
         },
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 30,
-        centeredSlides: true,
+        // centeredSlides: true,
     };
 
     return(
@@ -30,7 +30,10 @@ const  list = (props)=>(
     props.comminacrosslist.map(item=>(
         <div key={item.id}>
             <Listfile key={item.id} id={item.id} {...props}>
-                <h1>{item.nm}</h1>
+                <img src={item.img.replace('w.h','128.180')}/>
+                <p className="dre">{item.wish}想看</p>
+                <p>{item.nm}</p>
+                <p className="week">{item.comingTitle}</p>
             </Listfile>
         </div>
     ))
