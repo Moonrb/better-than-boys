@@ -1,0 +1,26 @@
+#catheader {
+  width: 100%;
+  height: .45rem;
+  background: rgb(230, 70, 70);
+  position: relative;
+
+  h1 {
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: -50%;
+    transform: translateX(-50%);
+    text-align: center;
+    line-height: .58rem;
+    font-size: .20rem;
+    color: white;
+  }
+  h2{
+    width: .4rem;
+    height: .4rem;
+    background: azure;
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+  }
+}

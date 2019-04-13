@@ -1,6 +1,8 @@
 import React,{Component} from 'react'
+import style from './detail.module.scss'
 import store from '../../store/store'
 import {detaillist} from  './actionCreator'
+import Catheater from  '../../component/catheader/catheader'
 class Detail extends Component{
     constructor(props){
         super(props);
@@ -11,6 +13,8 @@ class Detail extends Component{
     render() {
         return(
             <div>
+                <Catheater tital={this.state.detaillist.nm}>
+                </Catheater>
                 <h1>{this.state.detaillist.nm}</h1>
                 {
                     this.state.detaillist.img?

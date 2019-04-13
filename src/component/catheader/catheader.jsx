@@ -1,12 +1,16 @@
 import React,{Component} from 'react'
+import style from './catheader.module.scss'
 class Catheader extends Component{
     constructor(props){
         super(props)
     }
     render() {
         return(
-            <div>
-                <h1>猫头</h1>
+            <div id={style.catheader}>
+                <h1>{this.props.tital}</h1>
+                <h2>
+                    {this.props.children}
+                </h2>
             </div>
         )
     }
